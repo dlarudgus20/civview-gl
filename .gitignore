@@ -3,7 +3,7 @@
 
 # User-specific files
 *.suo
-*.user
+#*.user     # commented out for debug settings
 *.userosscache
 *.sln.docstates
 
