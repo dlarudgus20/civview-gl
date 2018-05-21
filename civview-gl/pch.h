@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <iterator>
 #include <string>
+#include <array>
 #include <map>
 #include <memory>
 #include <exception>
@@ -27,4 +28,4 @@
 
 #include <SOIL.h>
 
-#include <boost/thread.hpp>
+#include <boost/algorithm/string.hpp>
