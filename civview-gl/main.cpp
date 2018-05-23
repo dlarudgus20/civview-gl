@@ -1,13 +1,13 @@
 #include "pch.h"
 
+#include "../libgluk/gluk/application.h"
 #include "./mainwnd.h"
-#include "./application.h"
 
 int main()
 {
     try
     {
-        application app;
+        gluk::application app;
 
         mainwnd wnd;
         app.initGlew();

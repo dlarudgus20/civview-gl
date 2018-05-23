@@ -1,10 +1,10 @@
 #pragma once
 
-#include "window.h"
+#include "../libgluk/gluk/window.h"
+#include "../libgluk/gluk/camera.h"
+#include "../libgluk/gluk/scene.h"
 
-class scene;
-
-class mainwnd : public window
+class mainwnd : public gluk::window
 {
 public:
     mainwnd();
@@ -18,7 +18,7 @@ protected:
     virtual void onFrameBufferSize(int width, int height) override;
 
 private:
-    std::unique_ptr<scene> m_pScene;
+    std::unique_ptr<gluk::scene> m_pScene;
 
     glm::mat4 m_projection;
     glm::mat4 m_view;

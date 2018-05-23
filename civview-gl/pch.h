@@ -28,4 +28,7 @@
 
 #include <SOIL.h>
 
+#include <boost/signals2.hpp>
 #include <boost/algorithm/string.hpp>
+#include <boost/bind.hpp>
+namespace sig = boost::signals2;

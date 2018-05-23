@@ -1,13 +1,12 @@
 #include "pch.h"
 #include "./mainwnd.h"
 
-#include "./shader_manager.h"
+#include "../libgluk/gluk/shader_manager.h"
 #include "./main_scene.h"
 
 mainwnd::mainwnd()
     : window(800, 600, "civview-gl")
 {
-    m_view = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 }
 
 mainwnd::~mainwnd() = default;
@@ -17,9 +16,9 @@ void mainwnd::onInitialize()
     glfwSetInputMode(*this, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     window::onInitialize();
 
-    shader_manager::init();
+    gluk::shader_manager::init();
 
-    m_pScene = std::make_unique<main_scene>();
+    m_pScene = std::make_unique<main_scene>(this);
 
     glEnable(GL_DEPTH_TEST);
     //glEnable(GL_FRAMEBUFFER_SRGB);
@@ -32,9 +31,9 @@ void mainwnd::onRender()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-    shader_manager::get_shader().use();
+    gluk::shader_manager::get_shader().use();
     if (m_pScene)
-        m_pScene->render(m_projection, m_view);
+        m_pScene->render(m_projection);
 
     glfwSwapBuffers(*this);
 }
